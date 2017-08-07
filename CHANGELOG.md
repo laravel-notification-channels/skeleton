@@ -1,7 +1,7 @@
 # Changelog
 
-All notable changes to `:package_name` will be documented in this file
+All notable changes to `Textlocal` will be documented in this file
 
-## 1.0.0 - 201X-XX-XX
+## 0.0.1 - 2017-08-07
 
 - initial release
