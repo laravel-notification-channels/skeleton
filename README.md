@@ -42,15 +42,14 @@ Create an account in textlocal then create an API key or hash(password).
 ### Setting up the textlocal service
 
 put the followings and to your config/services
-
+```
 'sms' => [
 	'textlocal' => [
 		'username'  => env('TEXTLOCAL_USERNAME'),
-		'password'  => env('TEXTLOCAL_PASSWORD'),
 		'hash'      => env('TEXTLOCAL_HASH'),
-		'api_key'   => env('TEXTLOCAL_API_KEY'),
 		'sender'    => env('TEXTLOCAL_SENDER'),
 ]
+```
 
 
 ## Usage
