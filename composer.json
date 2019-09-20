@@ -1,13 +1,13 @@
 {
-    "name": "laravel-notification-channels/:package_name",
-    "description": ":package_description",
-    "homepage": "https://github.com/laravel-notification-channels/:package_name",
+    "name": "kielabokkie/aws-pinpoint-laravel-notification-channel",
+    "description": "Send notifications using AWS Pinpoint",
+    "homepage": "https://github.com/kielabokkie/aws-pinpoint-laravel-notification-channel",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Wouter Peschier",
+            "email": "kielabokkie@gmail.com",
+            "homepage": "https://kielabokkie.nl",
             "role": "Developer"
         }
     ],
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\": "src"
+            "NotificationChannels\\AwsPinpoint\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\Test\\": "tests"
+            "NotificationChannels\\AwsPinpoint\\Test\\": "tests"
         }
     },
     "scripts": {
