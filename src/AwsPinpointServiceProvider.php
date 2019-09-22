@@ -2,7 +2,10 @@
 
 namespace NotificationChannels\AwsPinpoint;
 
+use Aws\Laravel\AwsFacade;
 use Illuminate\Support\ServiceProvider;
+use NotificationChannels\AwsPinpoint\AwsPinpointChannel;
+use NotificationChannels\AwsPinpoint\AwsPinpointClient;
 
 class AwsPinpointServiceProvider extends ServiceProvider
 {
@@ -11,28 +14,26 @@ class AwsPinpointServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Bootstrap code here.
+        $this->app->when(AwsPinpointChannel::class)
+            ->needs(AwsPinpointClient::class)
+            ->give(function () {
+                $config = config('aws.Pinpoint');
 
-        // /**
-        //  * Here's some example code we use for the pusher package.
-        // $this->app->when(Channel::class)
-        //     ->needs(Pusher::class)
-        //     ->give(function () {
-        //         $pusherConfig = config('broadcasting.connections.pusher');
+                if (is_null($config)) {
+                    throw InvalidConfiguration::configurationNotSet();
+                }
 
-        //         return new Pusher(
-        //             $pusherConfig['key'],
-        //             $pusherConfig['secret'],
-        //             $pusherConfig['app_id']
-        //         );
-        //     });
-        //  */
-    }
+                $client = AwsFacade::createClient(
+                    'pinpoint',
+                    [
+                        'credentials' => [
+                            'key' => $config['key'],
+                            'secret' => $config['secret'],
+                        ],
+                    ]
+                );
 
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
+                return new AwsPinpointClient($client);
+            });
     }
 }

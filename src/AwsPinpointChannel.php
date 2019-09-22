@@ -2,14 +2,25 @@
 
 namespace NotificationChannels\AwsPinpoint;
 
-use NotificationChannels\AwsPinpoint\Exceptions\CouldNotSendNotification;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\AwsPinpoint\AwsPinpointClient;
+use NotificationChannels\AwsPinpoint\AwsPinpointMessage;
 
 class AwsPinpointChannel
 {
-    public function __construct()
+    /**
+     * @var \NotificationChannels\AwsPinpoint\AwsPinpointClient
+     */
+    protected $client;
+
+    /**
+     * Create a AwsPinpointChannel instance.
+     *
+     * @param \NotificationChannels\AwsPinpoint\AwsPinpointClient $client
+     */
+    public function __construct(AwsPinpointClient $client)
     {
-        // Initialisation code here
+        $this->client = $client;
     }
 
     /**
@@ -17,15 +28,19 @@ class AwsPinpointChannel
      *
      * @param mixed $notifiable
      * @param \Illuminate\Notifications\Notification $notification
-     *
-     * @throws \NotificationChannels\AwsPinpoint\Exceptions\CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
     {
-        // $response = [a call to the api of your notification send]
+        $message = $notification->toAwsPinpoint($notifiable);
 
-        // if ($response->error) { // replace this by the code need to check for errors
-        //     throw CouldNotSendNotification::serviceRespondedWithAnError($response);
-        // }
+        if (is_string($message)) {
+            $message = AwsPinpointMessage::create($message);
+        }
+
+        if ($to = $notifiable->routeNotificationFor('awspinpoint')) {
+            $message->setRecipients($to);
+        }
+
+        $this->client->send($message);
     }
 }
