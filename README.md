@@ -1,12 +1,12 @@
 # AWS Pinpoint Laravel Notification Channel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/aws-pinpoint-laravel-notification-channel.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/aws-pinpoint-laravel-notification-channel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kielabokkie/aws-pinpoint-laravel-notification-channel.svg?style=flat-square)](https://packagist.org/packages/kielabokkie/aws-pinpoint-laravel-notification-channel)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/laravel-notification-channels/aws-pinpoint-laravel-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/aws-pinpoint-laravel-notification-channel)
+[![Build Status](https://img.shields.io/travis/kielabokkie/aws-pinpoint-laravel-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/kielabokkie/aws-pinpoint-laravel-notification-channel)
 [![StyleCI](https://styleci.io/repos/209686103/shield)](https://styleci.io/repos/209686103)
-[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/aws-pinpoint-laravel-notification-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/aws-pinpoint-laravel-notification-channel)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/aws-pinpoint-laravel-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/aws-pinpoint-laravel-notification-channel/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/aws-pinpoint-laravel-notification-channel.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/aws-pinpoint-laravel-notification-channel)
+[![Quality Score](https://img.shields.io/scrutinizer/g/kielabokkie/aws-pinpoint-laravel-notification-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/kielabokkie/aws-pinpoint-laravel-notification-channel)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/kielabokkie/aws-pinpoint-laravel-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/kielabokkie/aws-pinpoint-laravel-notification-channel/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/kielabokkie/aws-pinpoint-laravel-notification-channel.svg?style=flat-square)](https://packagist.org/packages/kielabokkie/aws-pinpoint-laravel-notification-channel)
 
 This package makes it easy to send notifications using [AwsPinpoint](link to service) with Laravel 5.5+ and 6.0.
 
