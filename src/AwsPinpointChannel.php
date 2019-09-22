@@ -3,8 +3,6 @@
 namespace NotificationChannels\AwsPinpoint;
 
 use Illuminate\Notifications\Notification;
-use NotificationChannels\AwsPinpoint\AwsPinpointClient;
-use NotificationChannels\AwsPinpoint\AwsPinpointMessage;
 
 class AwsPinpointChannel
 {

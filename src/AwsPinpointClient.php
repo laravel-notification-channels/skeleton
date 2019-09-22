@@ -3,13 +3,12 @@
 namespace NotificationChannels\AwsPinpoint;
 
 use Aws\AwsClient;
-use NotificationChannels\AwsPinpoint\AwsPinpointMessage;
 use NotificationChannels\AwsPinpoint\Exceptions\CouldNotSendNotification;
 
 class AwsPinpointClient
 {
     /**
-     * @var AwsClient $client
+     * @var AwsClient
      */
     protected $client;
 
