@@ -4,8 +4,6 @@ namespace NotificationChannels\AwsPinpoint;
 
 use Aws\Laravel\AwsFacade;
 use Illuminate\Support\ServiceProvider;
-use NotificationChannels\AwsPinpoint\AwsPinpointChannel;
-use NotificationChannels\AwsPinpoint\AwsPinpointClient;
 
 class AwsPinpointServiceProvider extends ServiceProvider
 {
