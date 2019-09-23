@@ -31,19 +31,82 @@ Send SMS using AWS Pinpoint the easy way.
 
 ## Installation
 
-Please also include the steps for any third-party service setup that's required for this package.
+You can install the package via composer by running the command below
+
+```
+composer require kielabokkie/aws-pinpoint-laravel-notification-channel
+```
 
 ### Setting up the AwsPinpoint service
 
-Optionally include a few steps how users can set up the service.
+This package uses the [AWS Service Provider for Laravel](https://github.com/aws/aws-sdk-php-laravel) package. You'll need to add specific configuration for AWS Pinpoint to your `config/aws.php` file. See the example below:
+
+```
+...
+'Pinpoint' => [
+    'region' => env('AWS_PINPOINT_REGION'),
+    'application_id' => env('AWS_PINPOINT_APPLICATION_ID'),
+    'sender_id' => env('AWS_PINPOINT_SENDER_ID'),
+    'key' => env('AWS_PINPOINT_KEY'),
+    'secret' => env('AWS_PINPOINT_SECRET'),
+],
+...
+```
+
+And then add the following entries in your `.env` file:
+
+```
+...
+AWS_PINPOINT_REGION=
+AWS_PINPOINT_APPLICATION_ID=
+AWS_PINPOINT_SENDER_ID=
+AWS_PINPOINT_KEY=
+AWS_PINPOINT_SECRET=
+...
+```
 
 ## Usage
 
-Some code examples, make it clear how to use the package
+Once everything is setup you can send a notification as follows:
 
-### Available Message methods
+```php
+<?php
 
-A list of all available options
+namespace App\Notifications;
+
+use App\User;
+use Illuminate\Notifications\Notification;
+use NotificationChannels\AwsPinpoint\AwsPinpointChannel;
+use NotificationChannels\AwsPinpoint\AwsPinpointSmsMessage;
+
+class PhoneVerificationCreated extends Notification
+{
+    /**
+     * Get the notification's delivery channels.
+     *
+     * @param \App\User $notifiable
+     * @return array
+     */
+    public function via(User $notifiable)
+    {
+        return [AwsPinpointChannel::class];
+    }
+
+    /**
+     * Send SMS via AWS Pinpoint.
+     *
+     * @param \App\User $notifiable
+     * @return \NotificationChannels\AwsPinpoint\AwsPinpointSmsMessage
+     */
+    public function toAwsPinpoint(User $notifiable)
+    {
+        $message = sprintf('Your order %s has been dispatched', $this->orderId);
+
+        return (new AwsPinpointSmsMessage($message))
+            ->setRecipients($notifiable->mobile_number);
+    }
+}
+```
 
 ## Changelog
 
