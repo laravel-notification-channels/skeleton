@@ -37,7 +37,7 @@ class AwsPinpointSmsMessage
 
     public function setRecipients($recipients)
     {
-        if (is_string($recipients) === true || is_integer($recipients) === true) {
+        if (is_string($recipients) === true || is_int($recipients) === true) {
             $recipients = [$recipients];
         }
 
