@@ -2,11 +2,11 @@
 
 namespace NotificationChannels\Messagebird\Test;
 
-use NotificationChannels\AwsPinpoint\AwsPinpointSmsMessage;
 use PHPUnit\Framework\TestCase;
+use NotificationChannels\AwsPinpoint\AwsPinpointSmsMessage;
 
 /**
- * phpcs:disable PSR1.Methods.CamelCapsMethodName
+ * phpcs:disable PSR1.Methods.CamelCapsMethodName.
  */
 class AwsPinpointSmsMessageTest extends TestCase
 {
