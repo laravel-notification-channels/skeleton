@@ -2,10 +2,18 @@
 
 namespace NotificationChannels\AwsPinpoint\Exceptions;
 
+use NotificationChannels\AwsPinpoint\Events\DeliveryFailed;
+
 class CouldNotSendNotification extends \Exception
 {
-    public static function serviceRespondedWithAnError($response)
+    public static function serviceRespondedWithAnError($exception)
     {
-        return new static('Descriptive error message.');
+        $msg = sprintf(
+            'AWS Pinpoint responded with an error \'%s: %s\'',
+            $exception->getCode(),
+            $exception->getMessage()
+        );
+
+        return new static($msg);
     }
 }

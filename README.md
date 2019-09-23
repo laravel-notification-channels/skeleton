@@ -8,7 +8,7 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/kielabokkie/aws-pinpoint-laravel-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/kielabokkie/aws-pinpoint-laravel-notification-channel/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/kielabokkie/aws-pinpoint-laravel-notification-channel.svg?style=flat-square)](https://packagist.org/packages/kielabokkie/aws-pinpoint-laravel-notification-channel)
 
-This package makes it easy to send notifications using [AwsPinpoint](link to service) with Laravel 5.5+ and 6.0.
+This package makes it easy to send notifications using [AwsPinpoint](https://aws.amazon.com/pinpoint/) with Laravel 5.5+ and 6.0.
 
 **Note: Currently only SMS is supported. Other message types like voice and email are on the roadmap. Please get in touch if you would like to help out with this.**
 
