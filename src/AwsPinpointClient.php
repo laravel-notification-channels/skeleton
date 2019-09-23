@@ -26,10 +26,10 @@ class AwsPinpointClient
     /**
      * Send the Message.
      *
-     * @param AwsPinpointMessage $message
+     * @param AwsPinpointSmsMessage $message
      * @throws CouldNotSendNotification
      */
-    public function send(AwsPinpointMessage $message)
+    public function send(AwsPinpointSmsMessage $message)
     {
         try {
             $result = $this->client->sendMessages([

@@ -2,7 +2,7 @@
 
 namespace NotificationChannels\AwsPinpoint;
 
-class AwsPinpointMessage
+class AwsPinpointSmsMessage
 {
     public $body;
     public $messageType = 'TRANSACTIONAL';

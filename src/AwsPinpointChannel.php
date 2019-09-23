@@ -32,7 +32,7 @@ class AwsPinpointChannel
         $message = $notification->toAwsPinpoint($notifiable);
 
         if (is_string($message)) {
-            $message = AwsPinpointMessage::create($message);
+            $message = AwsPinpointSmsMessage::create($message);
         }
 
         if ($to = $notifiable->routeNotificationFor('awspinpoint')) {
