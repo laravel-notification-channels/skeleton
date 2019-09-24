@@ -4,6 +4,7 @@ namespace NotificationChannels\AwsPinpoint;
 
 use Aws\AwsClient;
 use NotificationChannels\AwsPinpoint\Events\DeliveryFailed;
+use NotificationChannels\AwsPinpoint\Events\DeliverySuccess;
 use NotificationChannels\AwsPinpoint\Exceptions\CouldNotSendNotification;
 
 class AwsPinpointClient
@@ -49,10 +50,14 @@ class AwsPinpointClient
             $output = $result->get('MessageResponse');
 
             foreach ($output['Result'] as $number => $res) {
-                if ($res['DeliveryStatus'] !== 'SUCCESSFUL') {
-                    // Trigger event for unsuccessful deliveries
-                    event(new DeliveryFailed($number, $message->body, $res['StatusMessage']));
+                if ($res['DeliveryStatus'] === 'SUCCESSFUL') {
+                    // Trigger event for successful deliveries
+                    event(new DeliverySuccess($number, $message->body, $res['StatusMessage']));
+                    continue;
                 }
+
+                // Trigger event for failed deliveries
+                event(new DeliveryFailed($number, $message->body, $res['StatusMessage']));
             }
         } catch (Exception $exception) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($exception);
